@@ -27,7 +27,7 @@ jobs:
 
       - name: Provision Azure Resources
         run: |
-          az group create --name hotelos-muxammadali-rg --location eastus --output none
+          az group create --name hotelos-muxammadali-rg --location uaenorth --output none
 
           if ! az appservice plan show --name hotelos-muxammadali-plan --resource-group hotelos-muxammadali-rg &>/dev/null; then
             az appservice plan create \
