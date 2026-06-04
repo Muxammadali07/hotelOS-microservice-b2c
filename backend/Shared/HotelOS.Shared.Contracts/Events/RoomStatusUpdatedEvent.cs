@@ -1,4 +1,4 @@
-namespace HotelOS.Shared.Contracts.Events;
+namespace Velora.Shared.Contracts.Events;
 
 public record RoomStatusUpdatedEvent(
     Guid     RoomId,

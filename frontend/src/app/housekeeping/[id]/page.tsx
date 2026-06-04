@@ -62,12 +62,12 @@ export default function CleaningDetailPage() {
     <div className="max-w-lg">
       <button
         onClick={() => router.back()}
-        className="text-slate-400 hover:text-gold-400 text-sm mb-6 transition-colors"
+        className="text-slate-400 hover:text-brand-400 text-sm mb-6 transition-colors"
       >
         ← Back
       </button>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl p-6">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl p-6">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-xl font-bold text-white">Cleaning Assignment</h1>
           <Badge label={log.status} variant={statusVariant} />

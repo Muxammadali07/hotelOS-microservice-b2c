@@ -55,13 +55,13 @@ export default function ManagerPaymentsPage() {
         <h1 className="text-2xl font-bold text-white">Payments</h1>
         <div className="text-right">
           <p className="text-slate-400 text-sm">{pending} pending</p>
-          <p className="text-gold-400 font-semibold">${total.toFixed(2)} collected</p>
+          <p className="text-brand-400 font-semibold">${total.toFixed(2)} collected</p>
         </div>
       </div>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-navy-900/50">
+          <thead className="bg-zinc-950/50">
             <tr>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Type</th>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Amount</th>
@@ -70,7 +70,7 @@ export default function ManagerPaymentsPage() {
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-navy-700">
+          <tbody className="divide-y divide-surface-800">
             {loading
               ? Array.from({ length: 5 }).map((_, i) => <SkeletonRow key={i} cols={5} />)
               : payments.length === 0 ? (
@@ -78,11 +78,11 @@ export default function ManagerPaymentsPage() {
                   <td colSpan={5} className="text-center py-12 text-slate-400">No payments</td>
                 </tr>
               ) : payments.map((p) => (
-                <tr key={p.id} className="hover:bg-navy-700/30 transition-colors">
+                <tr key={p.id} className="hover:bg-surface-800/30 transition-colors">
                   <td className="px-4 py-3 text-slate-300">
                     {p.gatewayRef ? "Online" : "Manual"}
                   </td>
-                  <td className="px-4 py-3 text-gold-400 font-semibold">
+                  <td className="px-4 py-3 text-brand-400 font-semibold">
                     {p.amount.toFixed(2)} {p.currency}
                   </td>
                   <td className="px-4 py-3">

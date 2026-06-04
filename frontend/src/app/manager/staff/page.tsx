@@ -133,9 +133,9 @@ export default function ManagerStaffPage() {
         <Button onClick={() => setCreateModal(true)}>+ Add Staff</Button>
       </div>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-navy-900/50">
+          <thead className="bg-zinc-950/50">
             <tr>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Email</th>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Role</th>
@@ -145,7 +145,7 @@ export default function ManagerStaffPage() {
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-navy-700">
+          <tbody className="divide-y divide-surface-800">
             {loading
               ? Array.from({ length: 5 }).map((_, i) => <SkeletonRow key={i} cols={6} />)
               : accounts.length === 0 ? (
@@ -154,9 +154,9 @@ export default function ManagerStaffPage() {
                 </tr>
               ) : (
                 accounts.map((acc) => (
-                  <tr key={acc.id} className="hover:bg-navy-700/30 transition-colors">
+                  <tr key={acc.id} className="hover:bg-surface-800/30 transition-colors">
                     <td className="px-4 py-3 text-white">{acc.email}</td>
-                    <td className="px-4 py-3 text-gold-400">{acc.role}</td>
+                    <td className="px-4 py-3 text-brand-400">{acc.role}</td>
                     <td className="px-4 py-3">
                       <Badge label={acc.status} variant={accountStatusVariant(acc.status)} />
                     </td>

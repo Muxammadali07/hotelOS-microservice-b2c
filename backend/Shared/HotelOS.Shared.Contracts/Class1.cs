@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Shared.Contracts;
+﻿namespace Velora.Shared.Contracts;
 
 public class Class1
 {

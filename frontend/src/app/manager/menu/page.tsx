@@ -107,7 +107,7 @@ export default function ManagerMenuPage() {
           value={form.description}
           onChange={set("description")}
           rows={2}
-          className="bg-navy-700 border border-navy-600 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500"
+          className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500"
         />
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -139,7 +139,7 @@ export default function ManagerMenuPage() {
       </div>
 
       {loading ? (
-        <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+        <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
           <table className="w-full"><tbody>{Array.from({ length: 6 }).map((_, i) => <SkeletonRow key={i} cols={5} />)}</tbody></table>
         </div>
       ) : items.length === 0 ? (
@@ -152,9 +152,9 @@ export default function ManagerMenuPage() {
             return (
               <div key={cat}>
                 <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">{cat}</h2>
-                <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+                <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
                   <table className="w-full text-sm">
-                    <thead className="bg-navy-900/50">
+                    <thead className="bg-zinc-950/50">
                       <tr>
                         <th className="text-left px-4 py-3 text-slate-400 font-medium">Name</th>
                         <th className="text-left px-4 py-3 text-slate-400 font-medium">Description</th>
@@ -163,12 +163,12 @@ export default function ManagerMenuPage() {
                         <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-navy-700">
+                    <tbody className="divide-y divide-surface-800">
                       {catItems.map((item) => (
-                        <tr key={item.id} className={`hover:bg-navy-700/30 transition-colors ${!item.isAvailable ? "opacity-50" : ""}`}>
+                        <tr key={item.id} className={`hover:bg-surface-800/30 transition-colors ${!item.isAvailable ? "opacity-50" : ""}`}>
                           <td className="px-4 py-3 text-white font-medium">{item.name}</td>
                           <td className="px-4 py-3 text-slate-400 max-w-xs truncate">{item.description}</td>
-                          <td className="px-4 py-3 text-gold-400">${item.price.toFixed(2)}</td>
+                          <td className="px-4 py-3 text-brand-400">${item.price.toFixed(2)}</td>
                           <td className="px-4 py-3">
                             <Badge label={item.isAvailable ? "Available" : "Unavailable"} variant={item.isAvailable ? "green" : "gray"} />
                           </td>

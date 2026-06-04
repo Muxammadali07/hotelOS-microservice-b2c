@@ -7,7 +7,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export default function Card({ children, className = "", ...rest }: Props) {
   return (
     <div
-      className={`bg-navy-800 border border-navy-700 rounded-xl p-6 ${className}`}
+      className={`bg-surface-900 border border-surface-800 rounded-2xl p-6 ${className}`}
       {...rest}
     >
       {children}
@@ -15,35 +15,35 @@ export default function Card({ children, className = "", ...rest }: Props) {
   );
 }
 
-const borderAccent = {
-  gold: "border-t-amber-500",
-  green: "border-t-emerald-500",
-  blue: "border-t-blue-500",
-  red: "border-t-red-500",
+const accentBar = {
+  brand: "border-l-brand-500",
+  green: "border-l-emerald-500",
+  blue: "border-l-sky-500",
+  red: "border-l-red-500",
 };
 
 const valueColors = {
-  gold: "text-amber-400",
+  brand: "text-brand-400",
   green: "text-emerald-400",
-  blue: "text-blue-400",
+  blue: "text-sky-400",
   red: "text-red-400",
 };
 
 export function StatCard({
   label,
   value,
-  color = "gold",
+  color = "brand",
 }: {
   label: string;
   value: string | number;
-  color?: "gold" | "green" | "blue" | "red";
+  color?: "brand" | "green" | "blue" | "red";
 }) {
   return (
     <div
-      className={`bg-navy-800 border border-navy-700 border-t-2 ${borderAccent[color]} rounded-lg px-5 py-4`}
+      className={`bg-surface-900 border border-surface-800 border-l-4 ${accentBar[color]} rounded-xl px-5 py-4`}
     >
-      <p className={`text-2xl font-semibold tabular-nums ${valueColors[color]}`}>{value}</p>
-      <p className="text-sm text-slate-400 mt-1">{label}</p>
+      <p className={`text-2xl font-bold tabular-nums ${valueColors[color]}`}>{value}</p>
+      <p className="text-xs text-zinc-500 mt-1 font-medium tracking-wide uppercase">{label}</p>
     </div>
   );
 }

@@ -1,30 +1,30 @@
 interface Props {
   label: string;
-  variant?: "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "gold";
+  variant?: "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "violet";
 }
 
 const styles = {
-  green: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
-  yellow: "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-  red: "bg-red-500/20 text-red-400 border border-red-500/30",
-  blue: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
-  gray: "bg-slate-500/20 text-slate-400 border border-slate-500/30",
-  orange: "bg-orange-500/20 text-orange-400 border border-orange-500/30",
-  gold: "bg-yellow-600/20 text-yellow-300 border border-yellow-600/30",
+  green:  "bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/20",
+  yellow: "bg-amber-500/10 text-amber-400 ring-1 ring-amber-500/20",
+  red:    "bg-red-500/10 text-red-400 ring-1 ring-red-500/20",
+  blue:   "bg-sky-500/10 text-sky-400 ring-1 ring-sky-500/20",
+  gray:   "bg-zinc-500/10 text-zinc-400 ring-1 ring-zinc-500/20",
+  orange: "bg-orange-500/10 text-orange-400 ring-1 ring-orange-500/20",
+  violet: "bg-brand-500/10 text-brand-400 ring-1 ring-brand-500/20",
 };
 
 export default function Badge({ label, variant = "gray" }: Props) {
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${styles[variant]}`}>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${styles[variant]}`}>
       {label}
     </span>
   );
 }
 
 export function roomStatusBadge(status: string) {
-  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "gold"> = {
+  const map: Record<string, "green" | "yellow" | "red" | "blue" | "gray" | "orange" | "violet"> = {
     Available: "green",
-    Reserved: "gold",
+    Reserved: "violet",
     Cleaning: "yellow",
     OOS: "red",
     Active: "blue",

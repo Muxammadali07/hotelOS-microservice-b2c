@@ -100,10 +100,10 @@ export default function KitchenPage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {COLUMNS.map((col) => (
-            <div key={col.status} className="bg-navy-800 border border-navy-700 rounded-xl p-4">
-              <div className="h-5 bg-navy-700 rounded w-2/3 mb-4 animate-pulse" />
+            <div key={col.status} className="bg-surface-900 border border-surface-800 rounded-xl p-4">
+              <div className="h-5 bg-surface-800 rounded w-2/3 mb-4 animate-pulse" />
               {Array.from({ length: 2 }).map((_, i) => (
-                <div key={i} className="h-24 bg-navy-700 rounded-lg mb-3 animate-pulse" />
+                <div key={i} className="h-24 bg-surface-800 rounded-lg mb-3 animate-pulse" />
               ))}
             </div>
           ))}
@@ -115,11 +115,11 @@ export default function KitchenPage() {
             return (
               <div
                 key={col.status}
-                className="bg-navy-800 border border-navy-700 rounded-xl p-4 min-h-[300px]"
+                className="bg-surface-900 border border-surface-800 rounded-xl p-4 min-h-[300px]"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <h2 className="font-semibold text-white">{col.label}</h2>
-                  <span className="ml-auto bg-navy-700 text-slate-400 text-xs px-2 py-0.5 rounded-full">
+                  <span className="ml-auto bg-surface-800 text-slate-400 text-xs px-2 py-0.5 rounded-full">
                     {colOrders.length}
                   </span>
                 </div>
@@ -160,7 +160,7 @@ function OrderCard({
   nextStatus?: OrderStatus;
 }) {
   return (
-    <div className="bg-navy-900 border border-navy-700 rounded-lg p-3">
+    <div className="bg-zinc-950 border border-surface-800 rounded-lg p-3">
       <div className="flex items-start justify-between mb-2">
         <div>
           <p className="text-white text-xs font-semibold">
@@ -170,7 +170,7 @@ function OrderCard({
             {format(new Date(order.createdAt), "h:mm a")}
           </p>
         </div>
-        <p className="text-gold-400 text-xs font-semibold">
+        <p className="text-brand-400 text-xs font-semibold">
           ${order.totalPrice.toFixed(2)}
         </p>
       </div>

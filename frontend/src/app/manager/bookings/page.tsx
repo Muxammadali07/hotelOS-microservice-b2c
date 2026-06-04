@@ -80,27 +80,27 @@ export default function ManagerBookingsPage() {
         <span className="text-slate-400 text-sm">{bookings.length} total</span>
       </div>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl p-4 mb-4">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl p-4 mb-4">
         <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Filter by room number…" className="w-full" />
       </div>
 
       <div className="flex gap-2 mb-4 flex-wrap">
         <button onClick={() => setFilter("")}
-          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-gold-500 text-navy-900 font-semibold" : "bg-navy-700 text-slate-300 hover:text-white"}`}>
+          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
           All
         </button>
         {STATUSES.map((s) => (
           <button key={s} onClick={() => setFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-gold-500 text-navy-900 font-semibold" : "bg-navy-700 text-slate-300 hover:text-white"}`}>
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
             {s}
           </button>
         ))}
       </div>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-navy-900/50">
+          <thead className="bg-zinc-950/50">
             <tr>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Check-in</th>
@@ -110,16 +110,16 @@ export default function ManagerBookingsPage() {
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-navy-700">
+          <tbody className="divide-y divide-surface-800">
             {loading ? Array.from({ length: 6 }).map((_, i) => <SkeletonRow key={i} cols={6} />)
               : displayed.length === 0 ? (
                 <tr><td colSpan={6} className="text-center py-12 text-slate-400">No bookings</td></tr>
               ) : displayed.map((bk) => (
-                <tr key={bk.id} className="hover:bg-navy-700/30 transition-colors">
+                <tr key={bk.id} className="hover:bg-surface-800/30 transition-colors">
                   <td className="px-4 py-3 text-white font-medium">{bk.roomNumber}</td>
                   <td className="px-4 py-3 text-slate-300">{format(new Date(bk.checkIn), "MMM d, yyyy")}</td>
                   <td className="px-4 py-3 text-slate-300">{format(new Date(bk.checkOut), "MMM d, yyyy")}</td>
-                  <td className="px-4 py-3 text-gold-400">${bk.totalPrice.toFixed(2)}</td>
+                  <td className="px-4 py-3 text-brand-400">${bk.totalPrice.toFixed(2)}</td>
                   <td className="px-4 py-3">{bookingStatusBadge(bk.status)}</td>
                   <td className="px-4 py-3">
                     <div className="flex gap-2 flex-wrap">
@@ -174,7 +174,7 @@ function InfoRow({ label, value, highlight }: { label: string; value: string; hi
   return (
     <div className="flex justify-between">
       <span className="text-slate-400">{label}</span>
-      <span className={highlight ? "text-gold-400 font-semibold" : "text-white"}>{value}</span>
+      <span className={highlight ? "text-brand-400 font-semibold" : "text-white"}>{value}</span>
     </div>
   );
 }

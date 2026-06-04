@@ -1,4 +1,4 @@
-namespace HotelOS.Identity.Core.Entities;
+namespace Velora.Identity.Core.Entities;
 
 public class Receptionist : Account
 {

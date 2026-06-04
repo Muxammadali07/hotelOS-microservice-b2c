@@ -102,7 +102,7 @@ function WalkInForm() {
     <div className="max-w-xl">
       <h1 className="text-2xl font-bold text-white mb-6">Walk-in Booking</h1>
 
-      <form onSubmit={handleSubmit} className="bg-navy-800 border border-navy-700 rounded-xl p-6 space-y-5">
+      <form onSubmit={handleSubmit} className="bg-surface-900 border border-surface-800 rounded-xl p-6 space-y-5">
         {/* Guest details */}
         <div>
           <p className="text-xs text-slate-400 font-medium uppercase tracking-wide mb-3">Guest Details</p>
@@ -151,7 +151,7 @@ function WalkInForm() {
         <div>
           <label>Room</label>
           {prefilledRoomId ? (
-            <div className="bg-navy-700 border border-navy-600 rounded-md px-3 py-2 text-white text-sm">
+            <div className="bg-surface-800 border border-surface-700 rounded-md px-3 py-2 text-white text-sm">
               Room {prefilledRoomNumber}
               <input type="hidden" value={form.roomId} />
             </div>

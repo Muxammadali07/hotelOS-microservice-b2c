@@ -71,12 +71,12 @@ export default function TicketDetailPage() {
     <div className="max-w-xl">
       <button
         onClick={() => router.back()}
-        className="text-slate-400 hover:text-gold-400 text-sm mb-6 transition-colors"
+        className="text-slate-400 hover:text-brand-400 text-sm mb-6 transition-colors"
       >
         ← Back
       </button>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl p-6">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl p-6">
         <div className="flex items-start justify-between mb-6">
           <h1 className="text-xl font-bold text-white">Maintenance Ticket</h1>
           <div className="flex gap-2">
@@ -94,7 +94,7 @@ export default function TicketDetailPage() {
           <Row label="Reported by" value={ticket.reportedBy} />
           <div>
             <p className="text-slate-400 mb-1">Description</p>
-            <p className="text-white bg-navy-700 rounded-lg p-3">{ticket.description}</p>
+            <p className="text-white bg-surface-800 rounded-lg p-3">{ticket.description}</p>
           </div>
           <Row label="Est. duration" value={`${ticket.estimatedMins} min`} />
           {ticket.assignedStaffId && (

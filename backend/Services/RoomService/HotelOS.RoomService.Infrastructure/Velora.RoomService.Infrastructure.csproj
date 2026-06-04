@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\HotelOS.Reception.Core\HotelOS.Reception.Core.csproj" />
+    <ProjectReference Include="..\HotelOS.RoomService.Core\Velora.RoomService.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

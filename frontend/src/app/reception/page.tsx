@@ -51,8 +51,8 @@ export default function ReceptionOverviewPage() {
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         <StatCard label="Available" value={available} color="green" />
         <StatCard label="Active (Guests)" value={active} color="blue" />
-        <StatCard label="Reserved" value={reserved} color="gold" />
-        <StatCard label="Cleaning" value={cleaning} color="gold" />
+        <StatCard label="Reserved" value={reserved} color="brand" />
+        <StatCard label="Cleaning" value={cleaning} color="brand" />
         <StatCard label="Out of Service" value={oos} color="red" />
       </div>
 
@@ -61,9 +61,9 @@ export default function ReceptionOverviewPage() {
         {rooms.length === 0 ? (
           <div className="text-center py-12 text-slate-400">No rooms found</div>
         ) : (
-          <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+          <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-navy-900/50">
+              <thead className="bg-zinc-950/50">
                 <tr>
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Style</th>
@@ -73,15 +73,15 @@ export default function ReceptionOverviewPage() {
                   <th className="text-left px-4 py-3 text-slate-400 font-medium">Price/night</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-navy-700">
+              <tbody className="divide-y divide-surface-800">
                 {rooms.map((room) => (
-                  <tr key={room.id} className="hover:bg-navy-700/30 transition-colors">
+                  <tr key={room.id} className="hover:bg-surface-800/30 transition-colors">
                     <td className="px-4 py-3 text-white font-medium">{room.roomNumber}</td>
                     <td className="px-4 py-3 text-slate-300">{room.style}</td>
                     <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                     <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
                     <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
-                    <td className="px-4 py-3 text-gold-400">${room.pricePerNight}</td>
+                    <td className="px-4 py-3 text-brand-400">${room.pricePerNight}</td>
                   </tr>
                 ))}
               </tbody>

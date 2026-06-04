@@ -132,7 +132,7 @@ export default function HousekeepingPage() {
           </p>
           <div className="flex flex-wrap gap-2">
             {cleaningRooms.map((r) => (
-              <span key={r.id} className="text-xs bg-navy-800 text-slate-300 px-2 py-1 rounded">
+              <span key={r.id} className="text-xs bg-surface-900 text-slate-300 px-2 py-1 rounded">
                 Room {r.roomNumber}
               </span>
             ))}
@@ -141,7 +141,7 @@ export default function HousekeepingPage() {
       )}
 
       {loading ? (
-        <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+        <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
             <tbody>{Array.from({ length: 4 }).map((_, i) => <SkeletonRow key={i} cols={5} />)}</tbody>
           </table>
@@ -152,9 +152,9 @@ export default function HousekeepingPage() {
           <p className="text-slate-400 text-sm">No active cleaning assignments.</p>
         </div>
       ) : (
-        <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+        <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
-            <thead className="bg-navy-900/50">
+            <thead className="bg-zinc-950/50">
               <tr>
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">ID</th>
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
@@ -164,9 +164,9 @@ export default function HousekeepingPage() {
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-navy-700">
+            <tbody className="divide-y divide-surface-800">
               {logs.map((log) => (
-                <tr key={log.id} className="hover:bg-navy-700/30 transition-colors">
+                <tr key={log.id} className="hover:bg-surface-800/30 transition-colors">
                   <td className="px-4 py-3 text-slate-400 font-mono text-xs">{log.id.slice(0, 8)}…</td>
                   <td className="px-4 py-3 text-white font-mono text-xs">{log.roomId.slice(0, 8)}…</td>
                   <td className="px-4 py-3">

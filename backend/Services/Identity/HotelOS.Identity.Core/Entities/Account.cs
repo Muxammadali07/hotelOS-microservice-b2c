@@ -1,6 +1,6 @@
-using HotelOS.Identity.Core.Enums;
+using Velora.Identity.Core.Enums;
 
-namespace HotelOS.Identity.Core.Entities;
+namespace Velora.Identity.Core.Entities;
 
 public abstract class Account
 {

@@ -112,7 +112,7 @@ export default function MaintenancePage() {
       </div>
 
       {loading ? (
-        <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+        <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
             <tbody>{Array.from({ length: 4 }).map((_, i) => <SkeletonRow key={i} cols={6} />)}</tbody>
           </table>
@@ -123,9 +123,9 @@ export default function MaintenancePage() {
           <p className="text-slate-400 text-sm">All maintenance issues are resolved.</p>
         </div>
       ) : (
-        <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+        <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
-            <thead className="bg-navy-900/50">
+            <thead className="bg-zinc-950/50">
               <tr>
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">Description</th>
@@ -135,9 +135,9 @@ export default function MaintenancePage() {
                 <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-navy-700">
+            <tbody className="divide-y divide-surface-800">
               {tickets.map((ticket) => (
-                <tr key={ticket.id} className="hover:bg-navy-700/30 transition-colors">
+                <tr key={ticket.id} className="hover:bg-surface-800/30 transition-colors">
                   <td className="px-4 py-3 text-white font-mono text-xs">
                     {ticket.roomId.slice(0, 8)}…
                   </td>
@@ -190,7 +190,7 @@ export default function MaintenancePage() {
               onChange={(e) => setCreateForm((f) => ({ ...f, description: e.target.value }))}
               rows={3}
               placeholder="Describe the issue…"
-              className="bg-navy-700 border border-navy-600 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500"
+              className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500"
               required
             />
           </div>

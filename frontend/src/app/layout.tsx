@@ -3,7 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "HotelOS",
+  title: "Velora",
   description: "Hotel management system",
 };
 

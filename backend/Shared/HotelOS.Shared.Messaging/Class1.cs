@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Shared.Messaging;
+﻿namespace Velora.Shared.Messaging;
 
 public class Class1
 {

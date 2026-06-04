@@ -170,20 +170,20 @@ export default function ReceptionRoomsPage() {
 
       <div className="flex gap-2 mb-4 flex-wrap">
         <button onClick={() => setFilter("")}
-          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-gold-500 text-navy-900 font-semibold" : "bg-navy-700 text-slate-300 hover:text-white"}`}>
+          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
           All ({rooms.length})
         </button>
         {FILTER_STATUSES.map((s) => (
           <button key={s} onClick={() => setFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-gold-500 text-navy-900 font-semibold" : "bg-navy-700 text-slate-300 hover:text-white"}`}>
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
             {s} ({rooms.filter((r) => r.status === s).length})
           </button>
         ))}
       </div>
 
-      <div className="bg-navy-800 border border-navy-700 rounded-xl overflow-hidden">
+      <div className="bg-surface-900 border border-surface-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-navy-900/50">
+          <thead className="bg-zinc-950/50">
             <tr>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Room</th>
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Style</th>
@@ -194,18 +194,18 @@ export default function ReceptionRoomsPage() {
               <th className="text-left px-4 py-3 text-slate-400 font-medium">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-navy-700">
+          <tbody className="divide-y divide-surface-800">
             {loading
               ? Array.from({ length: 5 }).map((_, i) => <SkeletonRow key={i} cols={7} />)
               : filtered.length === 0 ? (
                 <tr><td colSpan={7} className="text-center py-12 text-slate-400">No rooms found</td></tr>
               ) : filtered.map((room) => (
-                <tr key={room.id} className="hover:bg-navy-700/30 transition-colors">
+                <tr key={room.id} className="hover:bg-surface-800/30 transition-colors">
                   <td className="px-4 py-3 text-white font-medium">{room.roomNumber}</td>
                   <td className="px-4 py-3 text-slate-300">{room.style}</td>
                   <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                   <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
-                  <td className="px-4 py-3 text-gold-400">${room.pricePerNight}</td>
+                  <td className="px-4 py-3 text-brand-400">${room.pricePerNight}</td>
                   <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
                   <td className="px-4 py-3">
                     <div className="flex gap-2 flex-wrap">
@@ -315,7 +315,7 @@ export default function ReceptionRoomsPage() {
             {infoData.logs.length === 0 ? (
               <p className="text-slate-400">No cleaning assignments found</p>
             ) : infoData.logs.map((log, i) => (
-              <div key={log.id} className="bg-navy-700/50 rounded-lg p-3 space-y-1">
+              <div key={log.id} className="bg-surface-800/50 rounded-lg p-3 space-y-1">
                 <InfoRow label="Staff"    value={displayName(infoData.staffMap[log.staffId])} />
                 <InfoRow label="Email"    value={infoData.staffMap[log.staffId]?.email ?? "—"} />
                 <InfoRow label="Status"   value={log.status} />
@@ -328,7 +328,7 @@ export default function ReceptionRoomsPage() {
             {infoData.tickets.length === 0 ? (
               <p className="text-slate-400">No maintenance tickets</p>
             ) : infoData.tickets.map((t) => (
-              <div key={t.id} className="bg-navy-700/50 rounded-lg p-3 space-y-1">
+              <div key={t.id} className="bg-surface-800/50 rounded-lg p-3 space-y-1">
                 <InfoRow label="Priority"    value={t.priority} />
                 <InfoRow label="Status"      value={t.status} />
                 <p className="text-slate-300 text-xs">{t.description}</p>
@@ -351,7 +351,7 @@ function InfoRow({ label, value, highlight }: { label: string; value: string; hi
   return (
     <div className="flex justify-between">
       <span className="text-slate-400">{label}</span>
-      <span className={highlight ? "text-gold-400 font-semibold" : "text-white"}>{value}</span>
+      <span className={highlight ? "text-brand-400 font-semibold" : "text-white"}>{value}</span>
     </div>
   );
 }
