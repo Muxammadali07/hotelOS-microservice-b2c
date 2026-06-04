@@ -1,0 +1,54 @@
+name: Deploy RoomService Service
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/Services/RoomService/**'
+      - 'backend/Shared/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish
+        run: dotnet publish backend/Services/RoomService/HotelOS.RoomService.API -c Release -o publish/roomservice
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Provision Azure Resources
+        run: |
+          az group create --name hotelos-muxammadali-rg --location eastus --output none
+
+          if ! az appservice plan show --name hotelos-muxammadali-plan --resource-group hotelos-muxammadali-rg &>/dev/null; then
+            az appservice plan create \
+              --name hotelos-muxammadali-plan \
+              --resource-group hotelos-muxammadali-rg \
+              --sku F1 \
+              --is-linux \
+              --output none
+          fi
+
+          if ! az webapp show --name hotelos-muxammadali-roomservice --resource-group hotelos-muxammadali-rg &>/dev/null; then
+            az webapp create \
+              --name hotelos-muxammadali-roomservice \
+              --resource-group hotelos-muxammadali-rg \
+              --plan hotelos-muxammadali-plan \
+              --runtime "DOTNETCORE:8.0" \
+              --output none
+          fi
+
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: hotelos-muxammadali-roomservice
+          package: publish/roomservice
