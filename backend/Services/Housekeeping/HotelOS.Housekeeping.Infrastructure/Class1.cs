@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Housekeeping.Infrastructure;
+﻿namespace Velora.Housekeeping.Infrastructure;
 
 public class Class1
 {

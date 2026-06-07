@@ -1,4 +1,4 @@
-namespace HotelOS.Payment.Core.Enums;
+namespace Velora.Payment.Core.Enums;
 
 public enum CancellationPenalty
 {

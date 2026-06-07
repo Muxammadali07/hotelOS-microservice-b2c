@@ -1,8 +1,8 @@
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Reception.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 
-namespace HotelOS.Reception.API.Workers;
+namespace Velora.Reception.API.Workers;
 
 public class ReservationExpiryWorker : BackgroundService
 {

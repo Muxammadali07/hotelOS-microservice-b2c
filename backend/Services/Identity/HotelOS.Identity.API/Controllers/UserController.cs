@@ -1,11 +1,11 @@
-using HotelOS.Identity.API.DTOs;
-using HotelOS.Identity.Core.Entities;
-using HotelOS.Identity.Core.Enums;
-using HotelOS.Identity.Core.Interfaces;
+using Velora.Identity.API.DTOs;
+using Velora.Identity.Core.Entities;
+using Velora.Identity.Core.Enums;
+using Velora.Identity.Core.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelOS.Identity.API.Controllers;
+namespace Velora.Identity.API.Controllers;
 
 [ApiController]
 [Route("api/users")]
@@ -106,7 +106,7 @@ public class UserController : ControllerBase
         // For Client accounts, include name from the Client entity fields
         string? firstName = null;
         string? lastName  = null;
-        if (account is HotelOS.Identity.Core.Entities.Client client)
+        if (account is Velora.Identity.Core.Entities.Client client)
         {
             firstName = client.FirstName;
             lastName  = client.LastName;
@@ -136,7 +136,7 @@ public class UserController : ControllerBase
     {
         try
         {
-            var profile = new HotelOS.Identity.Core.Entities.StaffProfile
+            var profile = new Velora.Identity.Core.Entities.StaffProfile
             {
                 FirstName             = dto.FirstName,
                 LastName              = dto.LastName,

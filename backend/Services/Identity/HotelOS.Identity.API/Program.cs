@@ -1,9 +1,9 @@
 using System.Text;
-using HotelOS.Identity.Core.Interfaces;
-using HotelOS.Identity.Core.Services;
-using HotelOS.Identity.Infrastructure.Data;
-using HotelOS.Identity.Infrastructure.Repositories;
-using HotelOS.Identity.API.Services;
+using Velora.Identity.Core.Contracts;
+using Velora.Identity.Core.Application;
+using Velora.Identity.Infrastructure.Data;
+using Velora.Identity.Infrastructure.Persistence;
+using Velora.Identity.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

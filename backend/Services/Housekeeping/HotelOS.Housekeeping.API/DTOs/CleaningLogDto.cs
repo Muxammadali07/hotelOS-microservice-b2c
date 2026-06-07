@@ -1,4 +1,4 @@
-namespace HotelOS.Housekeeping.API.DTOs;
+namespace Velora.Housekeeping.API.DTOs;
 
 public record AssignCleaningRequest(Guid RoomId, Guid StaffId);
 

@@ -1,8 +1,8 @@
 using System.Text;
-using HotelOS.Notification.API.Consumers;
-using HotelOS.Notification.API.Hubs;
-using HotelOS.Notification.Core.Interfaces;
-using HotelOS.Notification.Core.Services;
+using Velora.Notification.API.Consumers;
+using Velora.Notification.API.Hubs;
+using Velora.Notification.Core.Contracts;
+using Velora.Notification.Core.Application;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

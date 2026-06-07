@@ -1,7 +1,7 @@
-using HotelOS.Maintenance.Core.Entities;
+using Velora.Maintenance.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.Maintenance.Infrastructure.Data;
+namespace Velora.Maintenance.Infrastructure.Data;
 
 public class MaintenanceDbContext : DbContext
 {

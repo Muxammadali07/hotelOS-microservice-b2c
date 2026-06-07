@@ -1,8 +1,8 @@
-using HotelOS.RoomService.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.RoomService.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 
-namespace HotelOS.RoomService.API.Consumers;
+namespace Velora.RoomService.API.Consumers;
 
 public class RoomStatusConsumer : IConsumer<RoomStatusUpdatedEvent>
 {

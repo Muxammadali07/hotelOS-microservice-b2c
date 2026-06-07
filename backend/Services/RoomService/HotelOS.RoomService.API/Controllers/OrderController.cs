@@ -1,12 +1,12 @@
-using HotelOS.RoomService.API.DTOs;
-using HotelOS.RoomService.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.RoomService.API.DTOs;
+using Velora.RoomService.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace HotelOS.RoomService.API.Controllers;
+namespace Velora.RoomService.API.Controllers;
 
 [ApiController]
 [Route("api/orders")]
@@ -104,7 +104,7 @@ public class OrderController : ControllerBase
         }
     }
 
-    private static OrderResponse MapOrder(Core.Entities.Order o) => new(
+    private static OrderResponse MapOrder(Velora.RoomService.Core.Entities.Order o) => new(
         o.Id, o.BookingId, o.RoomId, o.GuestId,
         o.Status.ToString(), o.TotalPrice, o.CreatedAt,
         o.Items.Select(i => new OrderItemResponse(

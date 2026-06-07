@@ -1,9 +1,9 @@
 using System.Text;
-using HotelOS.Housekeeping.API.Consumers;
-using HotelOS.Housekeeping.Core.Interfaces;
-using HotelOS.Housekeeping.Core.Services;
-using HotelOS.Housekeeping.Infrastructure.Data;
-using HotelOS.Housekeeping.Infrastructure.Repositories;
+using Velora.Housekeeping.API.Consumers;
+using Velora.Housekeeping.Core.Contracts;
+using Velora.Housekeeping.Core.Application;
+using Velora.Housekeeping.Infrastructure.Data;
+using Velora.Housekeeping.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

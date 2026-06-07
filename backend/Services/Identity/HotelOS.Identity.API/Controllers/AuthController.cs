@@ -1,10 +1,10 @@
-using HotelOS.Identity.API.DTOs;
-using HotelOS.Identity.API.Services;
-using HotelOS.Identity.Core.Interfaces;
+using Velora.Identity.API.DTOs;
+using Velora.Identity.API.Services;
+using Velora.Identity.Core.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
-namespace HotelOS.Identity.API.Controllers;
+namespace Velora.Identity.API.Controllers;
 
 [ApiController]
 [Route("api/auth")]

@@ -1,9 +1,9 @@
-using HotelOS.Reception.Core.Enums;
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Reception.Core.Enums;
+using Velora.Reception.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 
-namespace HotelOS.Reception.API.Consumers;
+namespace Velora.Reception.API.Consumers;
 
 public class RoomStatusUpdatedConsumer : IConsumer<RoomStatusUpdatedEvent>
 {

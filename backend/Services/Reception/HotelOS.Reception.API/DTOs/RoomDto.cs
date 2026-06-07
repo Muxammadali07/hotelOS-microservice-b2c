@@ -1,6 +1,6 @@
-using HotelOS.Reception.Core.Enums;
+using Velora.Reception.Core.Enums;
 
-namespace HotelOS.Reception.API.DTOs;
+namespace Velora.Reception.API.DTOs;
 
 public record CreateRoomRequest(
     string    RoomNumber,

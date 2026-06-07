@@ -1,11 +1,11 @@
-using HotelOS.Housekeeping.API.DTOs;
-using HotelOS.Housekeeping.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Housekeeping.API.DTOs;
+using Velora.Housekeeping.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelOS.Housekeeping.API.Controllers;
+namespace Velora.Housekeeping.API.Controllers;
 
 [ApiController]
 [Route("api/cleaning")]
@@ -106,7 +106,7 @@ public class CleaningController : ControllerBase
     }
 
     private static CleaningLogResponse Map(
-        Core.Entities.CleanlinessLog l) => new(
+        Velora.Housekeeping.Core.Entities.CleanlinessLog l) => new(
         l.Id, l.RoomId, l.StaffId,
         l.Status.ToString(),
         l.StartedAt, l.CompletedAt,

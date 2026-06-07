@@ -1,6 +1,6 @@
 using Stripe;
 
-namespace HotelOS.Payment.Infrastructure.Adapters;
+namespace Velora.Payment.Infrastructure.Adapters;
 
 public class StripeGatewayAdapter
 {

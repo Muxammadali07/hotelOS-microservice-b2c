@@ -1,4 +1,4 @@
-namespace HotelOS.Reception.API.DTOs;
+namespace Velora.Reception.API.DTOs;
 
 public record CreateBookingRequest(
     Guid     RoomId,

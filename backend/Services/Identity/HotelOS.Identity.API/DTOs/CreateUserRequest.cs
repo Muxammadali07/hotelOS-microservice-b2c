@@ -1,6 +1,6 @@
-using HotelOS.Identity.Core.Enums;
+using Velora.Identity.Core.Enums;
 
-namespace HotelOS.Identity.API.DTOs;
+namespace Velora.Identity.API.DTOs;
 
 public record CreateClientRequest(
     string Email,

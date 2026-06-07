@@ -1,4 +1,4 @@
-namespace HotelOS.Maintenance.API.DTOs;
+namespace Velora.Maintenance.API.DTOs;
 
 public record CreateTicketRequest(
     Guid   RoomId,

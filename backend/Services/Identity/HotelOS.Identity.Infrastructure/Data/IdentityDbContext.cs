@@ -1,8 +1,8 @@
-using HotelOS.Identity.Core.Entities;
-using HotelOS.Identity.Core.Enums;
+using Velora.Identity.Core.Entities;
+using Velora.Identity.Core.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.Identity.Infrastructure.Data;
+namespace Velora.Identity.Infrastructure.Data;
 
 public class IdentityDbContext : DbContext
 {

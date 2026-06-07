@@ -1,6 +1,6 @@
-using HotelOS.Housekeeping.Core.Enums;
+using Velora.Housekeeping.Core.Enums;
 
-namespace HotelOS.Housekeeping.Core.Entities;
+namespace Velora.Housekeeping.Core.Entities;
 
 public class CleanlinessLog
 {

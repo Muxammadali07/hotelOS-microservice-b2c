@@ -1,7 +1,7 @@
-using HotelOS.Payment.Core.Entities;
+using Velora.Payment.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.Payment.Infrastructure.Data;
+namespace Velora.Payment.Infrastructure.Data;
 
 public class PaymentDbContext : DbContext
 {

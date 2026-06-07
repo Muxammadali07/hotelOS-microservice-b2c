@@ -1,4 +1,4 @@
-namespace HotelOS.Identity.Core.Enums;
+namespace Velora.Identity.Core.Enums;
 
 public enum AccStatus
 {

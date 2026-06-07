@@ -1,4 +1,4 @@
-namespace HotelOS.Identity.API.DTOs;
+namespace Velora.Identity.API.DTOs;
 
 public record LoginResponse(
     Guid   Id,

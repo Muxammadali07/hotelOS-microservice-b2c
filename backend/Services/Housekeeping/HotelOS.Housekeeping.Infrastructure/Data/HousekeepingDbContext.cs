@@ -1,7 +1,7 @@
-using HotelOS.Housekeeping.Core.Entities;
+using Velora.Housekeeping.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.Housekeeping.Infrastructure.Data;
+namespace Velora.Housekeeping.Infrastructure.Data;
 
 public class HousekeepingDbContext : DbContext
 {

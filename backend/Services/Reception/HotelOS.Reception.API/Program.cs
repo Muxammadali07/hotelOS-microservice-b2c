@@ -1,10 +1,10 @@
 using System.Text;
-using HotelOS.Reception.API.Consumers;
-using HotelOS.Reception.API.Workers;
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Reception.Core.Services;
-using HotelOS.Reception.Infrastructure.Data;
-using HotelOS.Reception.Infrastructure.Repositories;
+using Velora.Reception.API.Consumers;
+using Velora.Reception.API.Workers;
+using Velora.Reception.Core.Contracts;
+using Velora.Reception.Core.Application;
+using Velora.Reception.Infrastructure.Data;
+using Velora.Reception.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

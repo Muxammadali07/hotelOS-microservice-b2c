@@ -1,4 +1,4 @@
-namespace HotelOS.RoomService.Core.Entities;
+namespace Velora.RoomService.Core.Entities;
 
 public class OrderItem
 {

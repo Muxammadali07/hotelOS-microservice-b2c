@@ -1,4 +1,4 @@
-namespace HotelOS.Reception.Core.Enums;
+namespace Velora.Reception.Core.Enums;
 
 public enum BufferType
 {

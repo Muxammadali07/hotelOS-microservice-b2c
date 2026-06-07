@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Notification.Core;
+﻿namespace Velora.Notification.Core;
 
 public class Class1
 {

@@ -1,8 +1,8 @@
 using System.Text;
-using HotelOS.Maintenance.Core.Interfaces;
-using HotelOS.Maintenance.Core.Services;
-using HotelOS.Maintenance.Infrastructure.Data;
-using HotelOS.Maintenance.Infrastructure.Repositories;
+using Velora.Maintenance.Core.Contracts;
+using Velora.Maintenance.Core.Application;
+using Velora.Maintenance.Infrastructure.Data;
+using Velora.Maintenance.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

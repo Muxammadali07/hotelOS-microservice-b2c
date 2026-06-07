@@ -1,6 +1,6 @@
-using HotelOS.Payment.Core.Enums;
+using Velora.Payment.Core.Enums;
 
-namespace HotelOS.Payment.Core.Entities;
+namespace Velora.Payment.Core.Entities;
 
 public class PaymentRecord
 {

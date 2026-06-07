@@ -1,9 +1,9 @@
-using HotelOS.Housekeeping.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Housekeeping.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 
-namespace HotelOS.Housekeeping.API.Consumers;
+namespace Velora.Housekeeping.API.Consumers;
 
 public class RoomVacatedConsumer : IConsumer<RoomVacatedEvent>
 {

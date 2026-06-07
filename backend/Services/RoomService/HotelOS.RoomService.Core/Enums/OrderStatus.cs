@@ -1,4 +1,4 @@
-namespace HotelOS.RoomService.Core.Enums;
+namespace Velora.RoomService.Core.Enums;
 
 public enum OrderStatus
 {

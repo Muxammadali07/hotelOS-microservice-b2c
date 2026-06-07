@@ -1,4 +1,4 @@
-﻿namespace HotelOS.RoomService.Core;
+﻿namespace Velora.RoomService.Core;
 
 public class Class1
 {

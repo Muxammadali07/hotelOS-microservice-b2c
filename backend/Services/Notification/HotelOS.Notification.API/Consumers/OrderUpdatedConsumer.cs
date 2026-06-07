@@ -1,9 +1,9 @@
-using HotelOS.Notification.API.Hubs;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Notification.API.Hubs;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.SignalR;
 
-namespace HotelOS.Notification.API.Consumers;
+namespace Velora.Notification.API.Consumers;
 
 public class OrderUpdatedConsumer : IConsumer<OrderUpdatedEvent>
 {

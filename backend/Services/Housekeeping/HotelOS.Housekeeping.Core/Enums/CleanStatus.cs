@@ -1,4 +1,4 @@
-namespace HotelOS.Housekeeping.Core.Enums;
+namespace Velora.Housekeeping.Core.Enums;
 
 public enum CleanStatus
 {

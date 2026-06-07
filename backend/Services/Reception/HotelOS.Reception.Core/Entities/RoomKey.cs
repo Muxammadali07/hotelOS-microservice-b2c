@@ -1,4 +1,4 @@
-namespace HotelOS.Reception.Core.Entities;
+namespace Velora.Reception.Core.Entities;
 
 public class RoomKey
 {

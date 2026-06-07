@@ -1,10 +1,10 @@
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Reception.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelOS.Reception.API.Controllers;
+namespace Velora.Reception.API.Controllers;
 
 /// <summary>
 /// Internal endpoint — called by the scheduler when the

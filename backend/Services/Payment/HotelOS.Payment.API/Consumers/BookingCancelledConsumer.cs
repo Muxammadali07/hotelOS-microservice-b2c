@@ -1,8 +1,8 @@
-using HotelOS.Payment.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Payment.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 
-namespace HotelOS.Payment.API.Consumers;
+namespace Velora.Payment.API.Consumers;
 
 public class BookingCancelledConsumer : IConsumer<BookingCancelledEvent>
 {

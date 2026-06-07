@@ -1,4 +1,4 @@
-namespace HotelOS.Maintenance.Core.Entities;
+namespace Velora.Maintenance.Core.Entities;
 
 public class MaintenanceTicket
 {

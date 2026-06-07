@@ -1,10 +1,10 @@
-using HotelOS.RoomService.API.DTOs;
-using HotelOS.RoomService.Core.Entities;
-using HotelOS.RoomService.Core.Interfaces;
+using Velora.RoomService.API.DTOs;
+using Velora.RoomService.Core.Entities;
+using Velora.RoomService.Core.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelOS.RoomService.API.Controllers;
+namespace Velora.RoomService.API.Controllers;
 
 [ApiController]
 [Route("api/menu")]

@@ -1,12 +1,12 @@
-using HotelOS.Maintenance.API.DTOs;
-using HotelOS.Maintenance.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Maintenance.API.DTOs;
+using Velora.Maintenance.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace HotelOS.Maintenance.API.Controllers;
+namespace Velora.Maintenance.API.Controllers;
 
 [ApiController]
 [Route("api/tickets")]
@@ -114,7 +114,7 @@ public class TicketController : ControllerBase
         return Ok(tickets.Select(Map));
     }
 
-    private static TicketResponse Map(Core.Entities.MaintenanceTicket t) => new(
+    private static TicketResponse Map(Velora.Maintenance.Core.Entities.MaintenanceTicket t) => new(
         t.Id, t.RoomId, t.ReportedBy,
         t.Description, t.Priority, t.Status,
         t.EstimatedMins, t.AssignedStaffId,

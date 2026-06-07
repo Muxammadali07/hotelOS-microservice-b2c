@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Identity.Infrastructure;
+﻿namespace Velora.Identity.Infrastructure;
 
 public class Class1
 {

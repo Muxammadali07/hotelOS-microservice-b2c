@@ -1,10 +1,10 @@
 using System.Text;
-using HotelOS.Payment.API.Consumers;
-using HotelOS.Payment.Core.Interfaces;
-using HotelOS.Payment.Core.Services;
-using HotelOS.Payment.Infrastructure.Adapters;
-using HotelOS.Payment.Infrastructure.Data;
-using HotelOS.Payment.Infrastructure.Repositories;
+using Velora.Payment.API.Consumers;
+using Velora.Payment.Core.Contracts;
+using Velora.Payment.Core.Application;
+using Velora.Payment.Infrastructure.Adapters;
+using Velora.Payment.Infrastructure.Data;
+using Velora.Payment.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

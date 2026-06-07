@@ -1,6 +1,6 @@
-using HotelOS.RoomService.Core.Enums;
+using Velora.RoomService.Core.Enums;
 
-namespace HotelOS.RoomService.API.DTOs;
+namespace Velora.RoomService.API.DTOs;
 
 public record OrderItemRequest(Guid MenuItemId, int Quantity);
 

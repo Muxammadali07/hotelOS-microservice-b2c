@@ -1,12 +1,12 @@
-using HotelOS.Reception.API.DTOs;
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Reception.API.DTOs;
+using Velora.Reception.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace HotelOS.Reception.API.Controllers;
+namespace Velora.Reception.API.Controllers;
 
 [ApiController]
 [Route("api/bookings")]
@@ -24,7 +24,7 @@ public class BookingController : ControllerBase
     [HttpGet]
     [Authorize(Roles = "Manager,Receptionist")]
     public async Task<IActionResult> GetAll(
-        [FromQuery] Core.Enums.BookingStatus? status)
+        [FromQuery] Velora.Reception.Core.Enums.BookingStatus? status)
     {
         var bookings = await _service.GetAllBookingsAsync(status);
         return Ok(bookings.Select(MapToResponse));
@@ -237,7 +237,7 @@ public class BookingController : ControllerBase
 
     // ── Helper ────────────────────────────────────────────────
     private static BookingResponse MapToResponse(
-        Core.Entities.Booking b) => new(
+        Velora.Reception.Core.Entities.Booking b) => new(
         b.Id, b.GuestId, b.RoomId,
         b.Room?.RoomNumber ?? string.Empty,
         b.CheckIn, b.CheckOut, b.EffectiveCheckout,

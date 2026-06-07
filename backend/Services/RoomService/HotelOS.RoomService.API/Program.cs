@@ -1,9 +1,9 @@
 using System.Text;
-using HotelOS.RoomService.API.Consumers;
-using HotelOS.RoomService.Core.Interfaces;
-using HotelOS.RoomService.Core.Services;
-using HotelOS.RoomService.Infrastructure.Data;
-using HotelOS.RoomService.Infrastructure.Repositories;
+using Velora.RoomService.API.Consumers;
+using Velora.RoomService.Core.Contracts;
+using Velora.RoomService.Core.Application;
+using Velora.RoomService.Infrastructure.Data;
+using Velora.RoomService.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

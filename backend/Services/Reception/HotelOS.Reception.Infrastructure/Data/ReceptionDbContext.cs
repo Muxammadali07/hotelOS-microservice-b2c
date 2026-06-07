@@ -1,8 +1,8 @@
-using HotelOS.Reception.Core.Entities;
-using HotelOS.Reception.Core.Enums;
+using Velora.Reception.Core.Entities;
+using Velora.Reception.Core.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.Reception.Infrastructure.Data;
+namespace Velora.Reception.Infrastructure.Data;
 
 public class ReceptionDbContext : DbContext
 {

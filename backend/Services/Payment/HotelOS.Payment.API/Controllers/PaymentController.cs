@@ -1,13 +1,13 @@
-using HotelOS.Payment.API.DTOs;
-using HotelOS.Payment.Core.Interfaces;
-using HotelOS.Payment.Infrastructure.Adapters;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Payment.API.DTOs;
+using Velora.Payment.Core.Contracts;
+using Velora.Payment.Infrastructure.Adapters;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace HotelOS.Payment.API.Controllers;
+namespace Velora.Payment.API.Controllers;
 
 [ApiController]
 [Route("api/payments")]

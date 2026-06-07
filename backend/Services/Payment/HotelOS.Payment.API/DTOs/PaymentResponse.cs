@@ -1,4 +1,4 @@
-namespace HotelOS.Payment.API.DTOs;
+namespace Velora.Payment.API.DTOs;
 
 public record PaymentResponse(
     Guid    Id,

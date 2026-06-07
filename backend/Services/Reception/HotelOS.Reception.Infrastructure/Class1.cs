@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Reception.Infrastructure;
+﻿namespace Velora.Reception.Infrastructure;
 
 public class Class1
 {

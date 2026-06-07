@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
-namespace HotelOS.Notification.API.Hubs;
+namespace Velora.Notification.API.Hubs;
 
 /// <summary>
 /// SignalR hub — clients connect here and join channels.

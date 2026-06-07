@@ -1,4 +1,4 @@
-namespace HotelOS.RoomService.API.DTOs;
+namespace Velora.RoomService.API.DTOs;
 
 public record CreateMenuItemRequest(
     string Name,

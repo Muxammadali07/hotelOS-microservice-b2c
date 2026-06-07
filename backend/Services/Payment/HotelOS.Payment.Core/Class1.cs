@@ -1,4 +1,4 @@
-﻿namespace HotelOS.Payment.Core;
+﻿namespace Velora.Payment.Core;
 
 public class Class1
 {

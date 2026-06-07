@@ -1,7 +1,7 @@
-using HotelOS.RoomService.Core.Entities;
+using Velora.RoomService.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelOS.RoomService.Infrastructure.Data;
+namespace Velora.RoomService.Infrastructure.Data;
 
 public class RoomServiceDbContext : DbContext
 {

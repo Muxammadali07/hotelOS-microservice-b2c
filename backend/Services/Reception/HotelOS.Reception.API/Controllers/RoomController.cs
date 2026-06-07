@@ -1,14 +1,14 @@
-using HotelOS.Reception.API.DTOs;
-using HotelOS.Reception.Core.Entities;
-using HotelOS.Reception.Core.Enums;
-using HotelOS.Reception.Core.Interfaces;
-using HotelOS.Shared.Contracts.Events;
+using Velora.Reception.API.DTOs;
+using Velora.Reception.Core.Entities;
+using Velora.Reception.Core.Enums;
+using Velora.Reception.Core.Contracts;
+using Velora.Shared.Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace HotelOS.Reception.API.Controllers;
+namespace Velora.Reception.API.Controllers;
 
 [ApiController]
 [Route("api/rooms")]
@@ -137,7 +137,7 @@ public class RoomController : ControllerBase
     {
         try
         {
-            if (!Enum.TryParse<HotelOS.Reception.Core.Enums.BufferType>(
+            if (!Enum.TryParse<Velora.Reception.Core.Enums.BufferType>(
                     request.BufferType, out var bufferType))
                 return BadRequest(new { message = "Invalid BufferType value." });
 

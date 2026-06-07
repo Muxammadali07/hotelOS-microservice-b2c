@@ -1,11 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using HotelOS.Identity.Core.Entities;
+using Velora.Identity.Core.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace HotelOS.Identity.API.Services;
+namespace Velora.Identity.API.Services;
 
 public class JwtTokenService
 {

@@ -1,6 +1,6 @@
-using HotelOS.RoomService.Core.Enums;
+using Velora.RoomService.Core.Enums;
 
-namespace HotelOS.RoomService.Core.Entities;
+namespace Velora.RoomService.Core.Entities;
 
 public class Order
 {
