@@ -101,8 +101,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
     options.AddPolicy("FrontendPolicy", policy =>
         policy.WithOrigins(
-                  "http://localhost:3000",
-                  "https://your-vercel-app.vercel.app")
+                  (builder.Configuration["AllowedOrigins"] ?? "http://localhost:3000")
+                      .Split(',', StringSplitOptions.RemoveEmptyEntries))
               .AllowAnyHeader()
               .AllowAnyMethod()));
 
