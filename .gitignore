@@ -63,6 +63,7 @@ frontend/yarn-error.log*
 .env
 .env.*
 !.env.example
+!frontend/.env.production
 
 # ── Azure deployment scripts (contain live credentials) ───────
 azure-setup.sh
