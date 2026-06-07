@@ -60,13 +60,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
+{
     options.AddPolicy("FrontendPolicy", policy =>
+    {
         policy.WithOrigins(
-                  (builder.Configuration["AllowedOrigins"] ?? "http://localhost:3000")
-                      .Split(',', StringSplitOptions.RemoveEmptyEntries))
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials()));
+                "https://hotel-os-client-ui-muhammadali.vercel.app",
+                "https://hotel-os-microservice-b2c.vercel.app"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
 
 // ── Ocelot ────────────────────────────────────────────────────
 builder.Services.AddOcelot(builder.Configuration);
