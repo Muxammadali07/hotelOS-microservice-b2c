@@ -45,7 +45,7 @@ export default function ManagerOrdersPage() {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             Live updates
           </div>
-          <p className="text-brand-400 font-semibold">${totalRevenue.toFixed(2)} today</p>
+          <p className="text-primary-400 font-semibold">${totalRevenue.toFixed(2)} today</p>
         </div>
       </div>
 
@@ -76,7 +76,7 @@ export default function ManagerOrdersPage() {
                     <td className="px-4 py-3 text-slate-300">
                       {o.items.map((it) => `${it.quantity}× ${it.menuItemName}`).join(", ")}
                     </td>
-                    <td className="px-4 py-3 text-brand-400">${o.totalPrice.toFixed(2)}</td>
+                    <td className="px-4 py-3 text-primary-400">${o.totalPrice.toFixed(2)}</td>
                     <td className="px-4 py-3">{orderStatusBadge(o.status)}</td>
                     <td className="px-4 py-3 text-slate-400 text-xs">{format(new Date(o.createdAt), "h:mm a")}</td>
                   </tr>

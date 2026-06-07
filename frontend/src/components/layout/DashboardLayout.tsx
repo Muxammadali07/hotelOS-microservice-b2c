@@ -9,11 +9,7 @@ import Button from "@/components/ui/Button";
 import { authApi } from "@/lib/api";
 import toast from "react-hot-toast";
 
-interface NavItem {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
-}
+interface NavItem { href: string; label: string }
 
 interface Props {
   title: string;
@@ -25,151 +21,135 @@ interface Props {
 export default function DashboardLayout({ title, navItems, allowedRoles, children }: Props) {
   const { user, isLoading, clearUser } = useAuthStore();
   const pathname = usePathname();
-  const router = useRouter();
+  const router   = useRouter();
 
-  const isAllowed = !isLoading && !!user && allowedRoles.includes(user.role as Role);
+  const isAllowed    = !isLoading && !!user && allowedRoles.includes(user.role as Role);
   const needsRedirect = !isLoading && !isAllowed;
 
-  useEffect(() => {
-    if (needsRedirect) router.push("/login");
-  }, [needsRedirect, router]);
+  useEffect(() => { if (needsRedirect) router.push("/login"); }, [needsRedirect, router]);
 
+  const [showMenu,     setShowMenu]     = useState(false);
   const [showChangePw, setShowChangePw] = useState(false);
-  const [changePwForm, setChangePwForm] = useState({
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
-  });
-  const [changePwLoading, setChangePwLoading] = useState(false);
+  const [pwForm, setPwForm] = useState({ currentPassword: "", newPassword: "", confirmPassword: "" });
+  const [pwLoading, setPwLoading] = useState(false);
 
   if (isLoading || !user) return null;
 
-  const logout = () => {
-    clearUser();
-    router.push("/login");
-  };
+  const logout = () => { clearUser(); router.push("/login"); };
 
-  const handleChangePassword = async (e: React.FormEvent) => {
+  const handleChangePw = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (changePwForm.newPassword !== changePwForm.confirmPassword) {
-      toast.error("New passwords do not match");
-      return;
-    }
-    if (changePwForm.newPassword.length < 8) {
-      toast.error("Password must be at least 8 characters");
-      return;
-    }
-    setChangePwLoading(true);
+    if (pwForm.newPassword !== pwForm.confirmPassword) { toast.error("Passwords don't match"); return; }
+    if (pwForm.newPassword.length < 8) { toast.error("Minimum 8 characters"); return; }
+    setPwLoading(true);
     try {
-      await authApi.changePassword(user.id, changePwForm.currentPassword, changePwForm.newPassword);
+      await authApi.changePassword(user.id, pwForm.currentPassword, pwForm.newPassword);
       toast.success("Password updated");
       setShowChangePw(false);
-      setChangePwForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
+      setPwForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Failed to change password");
+      toast.error(err instanceof Error ? err.message : "Failed");
     } finally {
-      setChangePwLoading(false);
+      setPwLoading(false);
     }
   };
 
   return (
-    <div className="flex h-screen bg-zinc-950 overflow-hidden">
-      {/* Sidebar */}
-      <aside className="w-60 shrink-0 flex flex-col bg-surface-950 border-r border-surface-800">
-        {/* Brand */}
-        <div className="px-5 py-5 border-b border-surface-800">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center shrink-0">
-              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+    <div className="min-h-screen bg-zinc-950">
+      {/* ── Top navigation bar ─────────────────────────────────────── */}
+      <header className="sticky top-0 z-30 h-13 bg-surface-950 border-b border-surface-800">
+        <div className="flex items-center h-13 px-5 gap-5 max-w-screen-2xl mx-auto">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <div className="w-6 h-6 rounded-md bg-primary-500 flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-zinc-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21" />
               </svg>
             </div>
-            <div>
-              <span className="text-white font-bold text-sm tracking-tight">Velora</span>
-              <p className="text-zinc-600 text-[10px] font-medium tracking-widest uppercase leading-none mt-0.5">{title}</p>
-            </div>
+            <span className="text-white font-bold text-sm tracking-tight">Velora</span>
           </Link>
-        </div>
 
-        {/* Nav */}
-        <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto scrollbar-hide">
-          {navItems.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(item.href + "/");
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
-                  active
-                    ? "bg-brand-600/10 text-brand-400 font-medium"
-                    : "text-zinc-500 hover:text-zinc-200 hover:bg-surface-800"
-                }`}
-              >
-                <span className={`shrink-0 ${active ? "text-brand-400" : "text-zinc-600"}`}>
-                  {item.icon}
-                </span>
-                {item.label}
-                {active && <span className="ml-auto w-1 h-1 rounded-full bg-brand-500" />}
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Divider + role */}
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="w-px h-4 bg-surface-700" />
+            <span className="text-zinc-500 text-xs font-medium">{title}</span>
+          </div>
 
-        {/* Footer */}
-        <div className="px-4 py-4 border-t border-surface-800">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-full bg-brand-600/20 flex items-center justify-center shrink-0">
-              <span className="text-brand-400 text-xs font-bold uppercase">
+          {/* Nav tabs */}
+          <nav className="flex items-center gap-0.5 flex-1 overflow-x-auto scrollbar-hide">
+            {navItems.map((item) => {
+              const active = pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link key={item.href} href={item.href}
+                  className={`px-3 py-1.5 rounded-md text-sm whitespace-nowrap transition-all ${
+                    active
+                      ? "bg-primary-500/10 text-primary-400 font-medium"
+                      : "text-zinc-500 hover:text-zinc-200 hover:bg-surface-800"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* User area */}
+          <div className="relative shrink-0">
+            <button
+              onClick={() => setShowMenu((v) => !v)}
+              className="flex items-center gap-2.5 pl-2 pr-1 py-1 rounded-lg hover:bg-surface-800 transition-colors group"
+            >
+              <div className="text-right hidden sm:block">
+                <p className="text-xs text-zinc-300 leading-tight">{user.email}</p>
+                <p className="text-[10px] text-zinc-600 leading-tight">{user.role}</p>
+              </div>
+              <div className="w-7 h-7 rounded-full bg-primary-500/15 flex items-center justify-center text-primary-400 text-xs font-bold uppercase">
                 {user.email.charAt(0)}
-              </span>
-            </div>
-            <div className="min-w-0">
-              <p className="text-xs text-zinc-300 truncate">{user.email}</p>
-              <p className="text-[10px] text-zinc-600 font-medium">{user.role}</p>
-            </div>
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setShowChangePw(true)}
-              className="flex-1 text-xs text-zinc-600 hover:text-zinc-300 transition-colors text-left"
-            >
-              Change password
+              </div>
+              <svg className="w-3.5 h-3.5 text-zinc-600 group-hover:text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
-            <button
-              onClick={logout}
-              className="text-xs text-zinc-600 hover:text-red-400 transition-colors"
-            >
-              Sign out
-            </button>
+
+            {showMenu && (
+              <>
+                <div className="fixed inset-0 z-10" onClick={() => setShowMenu(false)} />
+                <div className="absolute right-0 top-full mt-1.5 w-44 bg-surface-900 border border-surface-800 rounded-xl shadow-2xl z-20 py-1 overflow-hidden">
+                  <button
+                    onClick={() => { setShowMenu(false); setShowChangePw(true); }}
+                    className="w-full text-left px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 hover:bg-surface-800 transition-colors"
+                  >
+                    Change password
+                  </button>
+                  <div className="mx-3 my-1 h-px bg-surface-800" />
+                  <button
+                    onClick={logout}
+                    className="w-full text-left px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-surface-800 transition-colors"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      </aside>
+      </header>
 
-      {/* Main content */}
-      <main className="flex-1 overflow-y-auto scrollbar-hide">
-        <div className="p-7 max-w-screen-xl">{children}</div>
+      {/* ── Page content ───────────────────────────────────────────── */}
+      <main className="max-w-screen-2xl mx-auto px-5 py-6">
+        {children}
       </main>
 
+      {/* ── Change password modal ───────────────────────────────────── */}
       <Modal open={showChangePw} onClose={() => setShowChangePw(false)} title="Change Password">
-        <form onSubmit={handleChangePassword} className="space-y-4">
-          <div>
-            <label>Current Password</label>
-            <input type="password" value={changePwForm.currentPassword}
-              onChange={(e) => setChangePwForm((f) => ({ ...f, currentPassword: e.target.value }))} required />
-          </div>
-          <div>
-            <label>New Password</label>
-            <input type="password" value={changePwForm.newPassword}
-              onChange={(e) => setChangePwForm((f) => ({ ...f, newPassword: e.target.value }))} minLength={8} required />
-          </div>
-          <div>
-            <label>Confirm New Password</label>
-            <input type="password" value={changePwForm.confirmPassword}
-              onChange={(e) => setChangePwForm((f) => ({ ...f, confirmPassword: e.target.value }))} minLength={8} required />
-          </div>
-          <div className="flex gap-3 justify-end pt-2">
+        <form onSubmit={handleChangePw} className="space-y-4">
+          <div><label>Current Password</label><input type="password" value={pwForm.currentPassword} onChange={(e) => setPwForm((f) => ({ ...f, currentPassword: e.target.value }))} required /></div>
+          <div><label>New Password</label><input type="password" value={pwForm.newPassword} onChange={(e) => setPwForm((f) => ({ ...f, newPassword: e.target.value }))} minLength={8} required /></div>
+          <div><label>Confirm New Password</label><input type="password" value={pwForm.confirmPassword} onChange={(e) => setPwForm((f) => ({ ...f, confirmPassword: e.target.value }))} minLength={8} required /></div>
+          <div className="flex gap-3 justify-end pt-1">
             <Button variant="ghost" type="button" onClick={() => setShowChangePw(false)}>Cancel</Button>
-            <Button type="submit" loading={changePwLoading}>Update Password</Button>
+            <Button type="submit" loading={pwLoading}>Update</Button>
           </div>
         </form>
       </Modal>

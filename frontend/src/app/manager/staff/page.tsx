@@ -156,7 +156,7 @@ export default function ManagerStaffPage() {
                 accounts.map((acc) => (
                   <tr key={acc.id} className="hover:bg-surface-800/30 transition-colors">
                     <td className="px-4 py-3 text-white">{acc.email}</td>
-                    <td className="px-4 py-3 text-brand-400">{acc.role}</td>
+                    <td className="px-4 py-3 text-primary-400">{acc.role}</td>
                     <td className="px-4 py-3">
                       <Badge label={acc.status} variant={accountStatusVariant(acc.status)} />
                     </td>

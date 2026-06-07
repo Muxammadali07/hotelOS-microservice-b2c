@@ -15,24 +15,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   isLoading: true,
 
   setUser: (user) => {
-    localStorage.setItem("hotelos_token", user.token);
-    localStorage.setItem("hotelos_user", JSON.stringify(user));
+    localStorage.setItem("velora_token", user.token);
+    localStorage.setItem("velora_user", JSON.stringify(user));
     set({ user });
   },
 
   clearUser: () => {
-    localStorage.removeItem("hotelos_token");
-    localStorage.removeItem("hotelos_user");
+    localStorage.removeItem("velora_token");
+    localStorage.removeItem("velora_user");
     set({ user: null });
   },
 
   hydrate: () => {
     try {
-      const raw = localStorage.getItem("hotelos_user");
+      const raw = localStorage.getItem("velora_user");
       if (raw) {
         const user: AuthUser = JSON.parse(raw);
-        const expired = new Date(user.expiresAt) < new Date();
-        if (!expired) {
+        if (new Date(user.expiresAt) > new Date()) {
           set({ user, isLoading: false });
           return;
         }

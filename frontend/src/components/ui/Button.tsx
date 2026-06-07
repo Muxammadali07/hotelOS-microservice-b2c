@@ -8,10 +8,10 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants = {
-  primary: "bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-sm shadow-brand-600/20",
+  primary:   "bg-primary-600 hover:bg-primary-500 text-white font-semibold shadow-sm",
   secondary: "bg-surface-800 hover:bg-surface-700 text-zinc-200 border border-surface-700",
-  danger: "bg-red-600 hover:bg-red-500 text-white font-semibold",
-  ghost: "bg-transparent hover:bg-surface-800 text-zinc-400 hover:text-zinc-200",
+  danger:    "bg-red-600 hover:bg-red-500 text-white font-semibold",
+  ghost:     "bg-transparent hover:bg-surface-800 text-zinc-400 hover:text-zinc-200",
 };
 
 const sizes = {
@@ -29,10 +29,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       {...rest}
     >
       {loading && (
-        <svg className="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-        </svg>
+        <div className="w-3.5 h-3.5 rounded-full border-2 border-current/30 border-t-current animate-spin" />
       )}
       {children}
     </button>

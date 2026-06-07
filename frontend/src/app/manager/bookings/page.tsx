@@ -87,12 +87,12 @@ export default function ManagerBookingsPage() {
 
       <div className="flex gap-2 mb-4 flex-wrap">
         <button onClick={() => setFilter("")}
-          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
+          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
           All
         </button>
         {STATUSES.map((s) => (
           <button key={s} onClick={() => setFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
             {s}
           </button>
         ))}
@@ -119,7 +119,7 @@ export default function ManagerBookingsPage() {
                   <td className="px-4 py-3 text-white font-medium">{bk.roomNumber}</td>
                   <td className="px-4 py-3 text-slate-300">{format(new Date(bk.checkIn), "MMM d, yyyy")}</td>
                   <td className="px-4 py-3 text-slate-300">{format(new Date(bk.checkOut), "MMM d, yyyy")}</td>
-                  <td className="px-4 py-3 text-brand-400">${bk.totalPrice.toFixed(2)}</td>
+                  <td className="px-4 py-3 text-primary-400">${bk.totalPrice.toFixed(2)}</td>
                   <td className="px-4 py-3">{bookingStatusBadge(bk.status)}</td>
                   <td className="px-4 py-3">
                     <div className="flex gap-2 flex-wrap">
@@ -174,7 +174,7 @@ function InfoRow({ label, value, highlight }: { label: string; value: string; hi
   return (
     <div className="flex justify-between">
       <span className="text-slate-400">{label}</span>
-      <span className={highlight ? "text-brand-400 font-semibold" : "text-white"}>{value}</span>
+      <span className={highlight ? "text-primary-400 font-semibold" : "text-white"}>{value}</span>
     </div>
   );
 }

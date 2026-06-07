@@ -62,7 +62,7 @@ export default function CleaningDetailPage() {
     <div className="max-w-lg">
       <button
         onClick={() => router.back()}
-        className="text-slate-400 hover:text-brand-400 text-sm mb-6 transition-colors"
+        className="text-slate-400 hover:text-primary-400 text-sm mb-6 transition-colors"
       >
         ← Back
       </button>

@@ -37,7 +37,7 @@ export default function ManagerOverviewPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         <StatCard label="Available Rooms" value={available} color="green" />
         <StatCard label="Active Stays" value={activeRooms} color="blue" />
-        <StatCard label="Cleaning Jobs" value={cleaning.length} color="brand" />
+        <StatCard label="Cleaning Jobs" value={cleaning.length} color="primary" />
         <StatCard label="Open Tickets" value={openTickets} color="red" />
       </div>
 
@@ -56,7 +56,7 @@ export default function ManagerOverviewPage() {
                 </div>
                 <div className="h-1.5 bg-surface-800 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-brand-500 rounded-full transition-all"
+                    className="h-full bg-primary-500 rounded-full transition-all"
                     style={{ width: `${pct}%` }}
                   />
                 </div>

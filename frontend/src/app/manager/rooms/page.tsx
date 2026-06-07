@@ -150,7 +150,7 @@ export default function ManagerRoomsPage() {
       <div className="flex gap-2 mb-4 flex-wrap">
         <button
           onClick={() => setFilter("")}
-          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}
+          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}
         >
           All ({rooms.length})
         </button>
@@ -158,7 +158,7 @@ export default function ManagerRoomsPage() {
           <button
             key={s}
             onClick={() => setFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}
           >
             {s} ({rooms.filter((r) => r.status === s).length})
           </button>
@@ -192,7 +192,7 @@ export default function ManagerRoomsPage() {
                     <td className="px-4 py-3 text-slate-300">{room.style}</td>
                     <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                     <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
-                    <td className="px-4 py-3 text-brand-400">${room.pricePerNight}</td>
+                    <td className="px-4 py-3 text-primary-400">${room.pricePerNight}</td>
                     <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
                     <td className="px-4 py-3">
                       <div className="flex gap-2">
@@ -271,7 +271,7 @@ export default function ManagerRoomsPage() {
               onChange={set("description")}
               rows={2}
               placeholder="Room description…"
-              className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500"
+              className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500"
             />
           </div>
           <div className="flex items-center gap-3">

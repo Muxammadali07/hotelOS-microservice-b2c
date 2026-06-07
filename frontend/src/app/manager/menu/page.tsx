@@ -107,7 +107,7 @@ export default function ManagerMenuPage() {
           value={form.description}
           onChange={set("description")}
           rows={2}
-          className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500"
+          className="bg-surface-800 border border-surface-700 text-white rounded-md px-3 py-2 w-full placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500"
         />
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -168,7 +168,7 @@ export default function ManagerMenuPage() {
                         <tr key={item.id} className={`hover:bg-surface-800/30 transition-colors ${!item.isAvailable ? "opacity-50" : ""}`}>
                           <td className="px-4 py-3 text-white font-medium">{item.name}</td>
                           <td className="px-4 py-3 text-slate-400 max-w-xs truncate">{item.description}</td>
-                          <td className="px-4 py-3 text-brand-400">${item.price.toFixed(2)}</td>
+                          <td className="px-4 py-3 text-primary-400">${item.price.toFixed(2)}</td>
                           <td className="px-4 py-3">
                             <Badge label={item.isAvailable ? "Available" : "Unavailable"} variant={item.isAvailable ? "green" : "gray"} />
                           </td>

@@ -170,7 +170,7 @@ function OrderCard({
             {format(new Date(order.createdAt), "h:mm a")}
           </p>
         </div>
-        <p className="text-brand-400 text-xs font-semibold">
+        <p className="text-primary-400 text-xs font-semibold">
           ${order.totalPrice.toFixed(2)}
         </p>
       </div>

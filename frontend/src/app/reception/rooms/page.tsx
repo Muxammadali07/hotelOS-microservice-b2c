@@ -170,12 +170,12 @@ export default function ReceptionRoomsPage() {
 
       <div className="flex gap-2 mb-4 flex-wrap">
         <button onClick={() => setFilter("")}
-          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
+          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === "" ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
           All ({rooms.length})
         </button>
         {FILTER_STATUSES.map((s) => (
           <button key={s} onClick={() => setFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-brand-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${filter === s ? "bg-primary-500 text-zinc-950 font-semibold" : "bg-surface-800 text-slate-300 hover:text-white"}`}>
             {s} ({rooms.filter((r) => r.status === s).length})
           </button>
         ))}
@@ -205,7 +205,7 @@ export default function ReceptionRoomsPage() {
                   <td className="px-4 py-3 text-slate-300">{room.style}</td>
                   <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                   <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
-                  <td className="px-4 py-3 text-brand-400">${room.pricePerNight}</td>
+                  <td className="px-4 py-3 text-primary-400">${room.pricePerNight}</td>
                   <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
                   <td className="px-4 py-3">
                     <div className="flex gap-2 flex-wrap">
@@ -351,7 +351,7 @@ function InfoRow({ label, value, highlight }: { label: string; value: string; hi
   return (
     <div className="flex justify-between">
       <span className="text-slate-400">{label}</span>
-      <span className={highlight ? "text-brand-400 font-semibold" : "text-white"}>{value}</span>
+      <span className={highlight ? "text-primary-400 font-semibold" : "text-white"}>{value}</span>
     </div>
   );
 }

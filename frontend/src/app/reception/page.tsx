@@ -51,8 +51,8 @@ export default function ReceptionOverviewPage() {
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         <StatCard label="Available" value={available} color="green" />
         <StatCard label="Active (Guests)" value={active} color="blue" />
-        <StatCard label="Reserved" value={reserved} color="brand" />
-        <StatCard label="Cleaning" value={cleaning} color="brand" />
+        <StatCard label="Reserved" value={reserved} color="primary" />
+        <StatCard label="Cleaning" value={cleaning} color="primary" />
         <StatCard label="Out of Service" value={oos} color="red" />
       </div>
 
@@ -81,7 +81,7 @@ export default function ReceptionOverviewPage() {
                     <td className="px-4 py-3 text-slate-300">{room.floor}</td>
                     <td className="px-4 py-3 text-slate-300">{room.capacity}</td>
                     <td className="px-4 py-3">{roomStatusBadge(room.status)}</td>
-                    <td className="px-4 py-3 text-brand-400">${room.pricePerNight}</td>
+                    <td className="px-4 py-3 text-primary-400">${room.pricePerNight}</td>
                   </tr>
                 ))}
               </tbody>

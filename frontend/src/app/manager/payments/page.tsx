@@ -55,7 +55,7 @@ export default function ManagerPaymentsPage() {
         <h1 className="text-2xl font-bold text-white">Payments</h1>
         <div className="text-right">
           <p className="text-slate-400 text-sm">{pending} pending</p>
-          <p className="text-brand-400 font-semibold">${total.toFixed(2)} collected</p>
+          <p className="text-primary-400 font-semibold">${total.toFixed(2)} collected</p>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default function ManagerPaymentsPage() {
                   <td className="px-4 py-3 text-slate-300">
                     {p.gatewayRef ? "Online" : "Manual"}
                   </td>
-                  <td className="px-4 py-3 text-brand-400 font-semibold">
+                  <td className="px-4 py-3 text-primary-400 font-semibold">
                     {p.amount.toFixed(2)} {p.currency}
                   </td>
                   <td className="px-4 py-3">
